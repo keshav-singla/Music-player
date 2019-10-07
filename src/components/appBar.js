@@ -20,8 +20,7 @@ class Appbar extends React.Component {
                         <IconButton edge="start"  color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
-                    </Toolbar>
-                    
+                    </Toolbar>  
                 </AppBar>
             </div>
         )

@@ -7,12 +7,14 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Typography from '@material-ui/core/Typography';
+
 
 
 const styles = {
     root: {
-        width: 400,
-        padding: '20px',
+        width: '98%',
+        padding: '1%',
     },
 
     playerFunction: {
@@ -69,6 +71,15 @@ class Player extends React.Component {
         return (
             <div className={classes.root}>
                 <Paper className={classes.root}>
+                    <div>
+                        <img
+                            src={`https://i.ytimg.com/vi/kkLk2XWMBf8/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLB4GZTFu1Ju2EPPPXnhMZtFVvYBaw`}
+                            alt='new'
+                        />
+
+                    </div>
+
+
                     <PrettoSlider
                         valueLabelDisplay="auto"
                         aria-label="pretto slider"
