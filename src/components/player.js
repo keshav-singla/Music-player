@@ -7,21 +7,21 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
-import Typography from '@material-ui/core/Typography';
-
-
+import Axios from 'axios';
 
 const styles = {
     root: {
-        width: '98%',
-        padding: '1%',
-    },
+        width: '96%',
+        margin: '1%',
+        padding: '20px'    },
 
     playerFunction: {
         display: 'in-line'
     }
 };
 
+const ID = '31w52sxrma5d6x5zubmd4ozshm5i';
+const OAuthToken = 'BQBS_BcVMCxdmzreUnVgSW-Bu3foRIdd6HzsOTni_7_n2w5sMqso-9iRwMk6x97WziqITUi3fDg3wCg2sUUanzXCOakEJ7vQAbpQPvhdz5mYV4cAMYnmB6crAzP2ycml0updNep74meXF9TPFdlPxe-Ja4Zkpdi0U8EdKA';
 
 class Player extends React.Component {
     constructor(props) {
@@ -35,13 +35,24 @@ class Player extends React.Component {
 
     }
 
+    componentDidMount = () => {
+        Axios.get(`https://api.spotify.com/v1/search?q=ed%20sheeran&type=artist Accept: application/json Content-Type: application/json Authorization: Bearer${OAuthToken}`)
+            .then(res => {
+                const data = res.data;
+                // this.setState({ data });
+            }
+            )
+    }
+
     render() {
+        console.log(this.data);
+
         const { classes } = this.props;
 
         const PrettoSlider = withStyles({
             root: {
                 color: "#52af77",
-                height: 8
+                height: 8,
             },
             thumb: {
                 height: 24,
@@ -60,25 +71,27 @@ class Player extends React.Component {
             },
             track: {
                 height: 8,
-                borderRadius: 4
+                borderRadius: 4,
             },
             rail: {
                 height: 5,
-                borderRadius: 4
+                borderRadius: 4,
             }
         })(Slider);
 
         return (
-            <div className={classes.root}>
-                <Paper className={classes.root}>
+            <div>
+                <Paper className={classes.root} >
                     <div>
-                        <img
-                            src={`https://i.ytimg.com/vi/kkLk2XWMBf8/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLB4GZTFu1Ju2EPPPXnhMZtFVvYBaw`}
-                            alt='new'
-                        />
-
+                        <Grid container >
+                            <Grid item xs={12}>
+                                <img
+                                    src={`https://i.ytimg.com/vi/kkLk2XWMBf8/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLB4GZTFu1Ju2EPPPXnhMZtFVvYBaw`}
+                                    alt='new'
+                                />
+                            </Grid>
+                        </Grid>
                     </div>
-
 
                     <PrettoSlider
                         valueLabelDisplay="auto"
@@ -87,9 +100,9 @@ class Player extends React.Component {
                     />
 
                     <div className={classes.playerFunction}>
-                        <SkipPreviousIcon />
-                        <PlayArrowIcon onClick={this.playPause()} />
-                        <SkipNextIcon />
+                        <SkipPreviousIcon fontSize="large" />
+                        <PlayArrowIcon onClick={this.playPause()} fontSize="large" />
+                        <SkipNextIcon fontSize="large" />
                     </div>
 
                     <Grid container spacing={2}>
