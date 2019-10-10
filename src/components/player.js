@@ -7,10 +7,6 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
-import Axios from 'axios';
-import getdata from '../actions/getData'
-import { connect } from 'react-redux';
-
 
 const styles = {
     root: {
@@ -23,8 +19,8 @@ const styles = {
     }
 };
 
-const ID = '31w52sxrma5d6x5zubmd4ozshm5i';
-const OAuthToken = 'BQBS_BcVMCxdmzreUnVgSW-Bu3foRIdd6HzsOTni_7_n2w5sMqso-9iRwMk6x97WziqITUi3fDg3wCg2sUUanzXCOakEJ7vQAbpQPvhdz5mYV4cAMYnmB6crAzP2ycml0updNep74meXF9TPFdlPxe-Ja4Zkpdi0U8EdKA';
+// const ID = '31w52sxrma5d6x5zubmd4ozshm5i';
+// const OAuthToken = 'BQBS_BcVMCxdmzreUnVgSW-Bu3foRIdd6HzsOTni_7_n2w5sMqso-9iRwMk6x97WziqITUi3fDg3wCg2sUUanzXCOakEJ7vQAbpQPvhdz5mYV4cAMYnmB6crAzP2ycml0updNep74meXF9TPFdlPxe-Ja4Zkpdi0U8EdKA';
 
 class Player extends React.Component {
     constructor(props) {
@@ -38,13 +34,13 @@ class Player extends React.Component {
 
     }
 
-    componentDidMount = async() => {
-        const data = await this.props.getdata();
-        this.setState({data})
+    // componentDidMount = async() => {
+    //     const data = await this.props.getdata();
+    //     this.setState({data})
        
-        console.log(data);
+    //     console.log(data);
 
-    }
+    // }
 
     render() {
 
@@ -123,9 +119,4 @@ class Player extends React.Component {
     }
 }
 
-export default withStyles(styles)(connect(
-    null,
-    {
-        getdata
-    }
-  )(Player));
+export default withStyles(styles)(Player);
