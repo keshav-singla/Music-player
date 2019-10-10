@@ -8,6 +8,9 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Axios from 'axios';
+import getdata from '../actions/getData'
+import { connect } from 'react-redux';
+
 
 const styles = {
     root: {
@@ -26,8 +29,8 @@ const OAuthToken = 'BQBS_BcVMCxdmzreUnVgSW-Bu3foRIdd6HzsOTni_7_n2w5sMqso-9iRwMk6
 class Player extends React.Component {
     constructor(props) {
         super(props)
-        this.setState = {
-
+        this.state = {
+            data : []
         }
     }
 
@@ -35,17 +38,15 @@ class Player extends React.Component {
 
     }
 
-    componentDidMount = () => {
-        Axios.get(`https://api.spotify.com/v1/search?q=ed%20sheeran&type=artist Accept: application/json Content-Type: application/json Authorization: Bearer${OAuthToken}`)
-            .then(res => {
-                const data = res.data;
-                // this.setState({ data });
-            }
-            )
+    componentDidMount = async() => {
+        const data = await this.props.getdata();
+        this.setState({data})
+       
+        console.log(data);
+
     }
 
     render() {
-        console.log(this.data);
 
         const { classes } = this.props;
 
@@ -122,4 +123,9 @@ class Player extends React.Component {
     }
 }
 
-export default withStyles(styles)(Player);
+export default withStyles(styles)(connect(
+    null,
+    {
+        getdata
+    }
+  )(Player));
