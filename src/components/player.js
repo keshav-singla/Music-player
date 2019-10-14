@@ -40,6 +40,7 @@ class Player extends React.Component {
                 color: "#52af77",
                 height: 8,
             },
+            
             thumb: {
                 height: 24,
                 width: 24,
@@ -51,14 +52,17 @@ class Player extends React.Component {
                     boxShadow: "inherit"
                 }
             },
+
             active: {},
             valueLabel: {
                 left: "calc(-50% + 4px)"
             },
+
             track: {
                 height: 8,
                 borderRadius: 4,
             },
+
             rail: {
                 height: 5,
                 borderRadius: 4,
