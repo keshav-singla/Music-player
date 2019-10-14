@@ -19,9 +19,6 @@ const styles = {
     }
 };
 
-// const ID = '31w52sxrma5d6x5zubmd4ozshm5i';
-// const OAuthToken = 'BQBS_BcVMCxdmzreUnVgSW-Bu3foRIdd6HzsOTni_7_n2w5sMqso-9iRwMk6x97WziqITUi3fDg3wCg2sUUanzXCOakEJ7vQAbpQPvhdz5mYV4cAMYnmB6crAzP2ycml0updNep74meXF9TPFdlPxe-Ja4Zkpdi0U8EdKA';
-
 class Player extends React.Component {
     constructor(props) {
         super(props)
@@ -33,14 +30,6 @@ class Player extends React.Component {
     playPause = () => {
 
     }
-
-    // componentDidMount = async() => {
-    //     const data = await this.props.getdata();
-    //     this.setState({data})
-       
-    //     console.log(data);
-
-    // }
 
     render() {
 
