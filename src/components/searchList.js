@@ -24,17 +24,16 @@ class SearchList extends React.Component {
                 {this.state.data.map((key, index) => {
                     return (
                         <div>
-                            
-                                <link
-                                    to={{
-                                        pathname: `${key.external_urls.spotify}`
-                                    }}
-                                >
-                                   
-                                    
-                             
-                                </link>
-                         hello
+                            <a
+                                href={key.external_urls.spotify}
+                            >
+                                <img
+                                    src={key.album.images && key.album.images[1].url}
+                                    alt='new'
+                                />
+                            </a>
+
+                            <p>{key.name}</p>
                         </div>
                     )
                 })}
